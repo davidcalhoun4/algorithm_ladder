@@ -1,4 +1,5 @@
-# COMPLETE Return the reverse of a given string.
+# REVERSE STRING - COMPLETE
+#Return the reverse of a given string.
 
 # Input: “abcde”
 # Output: “edcba”
@@ -18,7 +19,8 @@ def flip_it(string)
 end
 p flip_it("abcde")
 
-# COMPLETE Given a string, return true if the “$” character is contained within the string or false if it is not.
+# SHOW ME THE MONEY - COMPLETE
+# Given a string, return true if the “$” character is contained within the string or false if it is not.
 
 # Input: “i hate $ but i love money i know i know im crazy”
 # Output: true
@@ -67,8 +69,8 @@ p change_string("hello")
 # p alt_capitalize("hello")
 
 
-
-# COMPLETE Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
+# FIRST DUPLICATE CHARACTER - COMPLETE
+# Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
 
 # Input: “abcdefghhijkkloooop”
 # Output: “h”
@@ -91,7 +93,7 @@ while index1 < split.length
 end
 
 
-
+# REVERSE WORDS
 # Given a string of words, return a new string that contains the words in reverse order.
 
 # Input: “popcorn is so cool isn’t it yeah i thought so”
@@ -108,7 +110,7 @@ end
 
 def reverse_it(string)
   split = string.split(/ /)
-  reverse = ""
+  reverse = []
   index = split.length - 1
   while index >= 0
     reverse << split[index]
@@ -117,3 +119,46 @@ def reverse_it(string)
   return reverse
 end
 p reverse_it("popcorn is so cool isn’t it yeah i thought so")
+
+
+# PALINDROME
+# Given a string, return true if it is a palindrome, and false if it is not. (A palindrome is a word that reads the same both forward and backward.)
+# Input: “racecar”
+# Output: true
+# Input: “baloney”
+# Output: false
+
+# use condition to see if word reversed == word normal
+# return true, else false
+
+# using .reverse method
+def palindrome(string)
+  if string == string.reverse
+    return true
+  else
+    return false
+  end
+end
+p palindrome("racecar")
+p palindrome("baloney")
+
+# reversing string by hand
+def palindrome(string)
+  split = string.split(//)
+  reverse = ""
+  index = split.length - 1
+
+  while index >= 0
+    reverse << split[index]
+    index -= 1
+  end
+
+  if string == reverse
+    return true
+  else 
+    return false
+  end
+
+end
+p palindrome("racecar")
+p palindrome("colin")
