@@ -110,12 +110,14 @@ end
 
 def reverse_it(string)
   split = string.split(/ /)
-  reverse = []
+  reverse = ""
   index = split.length - 1
   while index >= 0
-    reverse << split[index]
+    reverse << split[index] + " "
     index -= 1
   end
+  # reverse = ""
+  # reversed = reverse.join
   return reverse
 end
 p reverse_it("popcorn is so cool isn’t it yeah i thought so")
@@ -162,3 +164,72 @@ def palindrome(string)
 end
 p palindrome("racecar")
 p palindrome("colin")
+
+
+
+# Given a string of words, return a new string that contains the words in reverse order.
+
+# Input: “popcorn is so cool isn’t it yeah i thought so”
+# Output: “so thought i yeah it isn’t cool so is popcorn”
+
+# create function
+# split = string.split(/ /)
+# reversed = ""
+# loop through split 
+# while index >= split.length 
+# index = split.length - 1
+# reversed << split[index]
+# index -= 1
+# return reversed 
+
+
+# Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
+
+# Input: “abcdefghhijkkloooop”
+# Output: “h”
+
+# write a function 
+# loop through input 
+# index1 = 0
+# index2 = index1 + 1
+# if index1 == index2 return index1
+# index1 += 1
+# index2 = index2 + 1
+
+# returns first duplicates
+def duplicate(string)
+  index1 = 0
+  while index1 <= string.length
+    index2 = index1 + 1
+    while index2 <= string.length
+      if string[index1] == string[index2]
+        return string[index1]
+      end
+      index2 += 1
+    end
+    index1 += 1
+  end
+end
+p duplicate("abcdefghhijkkloooop")
+
+# returns all duplicates
+def duplicate(string)
+  index1 = 0
+  duplicates = []
+  while index1 <= string.length
+    index2 = index1 + 1
+    while index2 <= string.length
+      if string[index1] == string[index2]
+        duplicates << string[index1]
+      end
+      index2 += 1
+    end
+    index1 += 1
+  end
+  return duplicates
+end
+p duplicate("abcdefghhijkkloooop")
+
+# "a b c d e f g h h i j k k l o o o o p"
+     
+

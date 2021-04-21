@@ -100,11 +100,22 @@ p reverse([1, 2, 3, 4, 5])
 def select(array)
   select_numbers = []
   index = 0
-  while index < array.length
-    select_numbers << array[index]
-    index += array[index]
+  while index <= array.length
+    select_numbers << array[index] # where index is / array[4]
+    index = index + array[index] # increment idex
   end
   return select_numbers
 end
 p select([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2])
+#                          5                11                    18
+# i   a   i
+# 0 + 2 = 2
+# 2 + 3 = 5
+# 5 + 1 = 6
+# 6 + 2 = 8
+# 8 + 2 = 10
+# 10 + 1 = 11
+# 11 + 5 = 16
+# 16 + 2 = 18
 
+[2, 3, 1, 2, 2, 1, 5, 2, 2]
