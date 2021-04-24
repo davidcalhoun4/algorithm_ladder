@@ -231,5 +231,24 @@ end
 p duplicate("abcdefghhijkkloooop")
 
 # "a b c d e f g h h i j k k l o o o o p"
+
+# Input: “abcdefghhijkkloooop”
+# Output: “h”
+
+def duplicate_finder(string)
+  index1 = 0
+  while index1 <= string.length
+    index2 = 1
+    while index2 <= string.length
+      if string[index1] == string[index2]
+        return string[index1]
+      end
+      index2 += 1
+    end
+    index1 += 1
+  end
+end
+p duplicate_finder("abcdefghijkklooopp")
+
      
 
