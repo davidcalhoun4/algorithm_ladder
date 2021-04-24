@@ -42,55 +42,36 @@ end
 p money("i hate $ but i love money i know i know im crazy")
 p money("abcdefghijklmnopqrstuvwxyz")
 
-# INCOMPLETE - Given a string, return a copy of the original string that has every other character capitalized. (Capitalization should begin with the second character.)
+# ALTERNATE CAPITALS - COMPLETE 
+# Given a string, return a copy of the original string that has every other character capitalized. (Capitalization should begin with the second character.)
 
 #   Input: “hello, how are your porcupines today?”
 #   Output: “hElLo, HoW ArE YoUr pOrCuPiNeS ToDaY?”
 
-# variable to hold new string ( capitalized = "" ) capitalized += input[index]
-# loop through input string with while loop
-# begin index at 0. index will increase each time the loop interates by 1
-# use nested loop to change odd index's with .upcase 
+ # split up string  string.split(//) this will create an array with each character as its own string. 
+ # create new string altered = ""
+ # loop through that array  .upcase odd indexs  and shovel into altered
 
-def change_string(string)
+ def change_string(string)
   split = string.split(//)
-  index = 1
+  index = 0
+  altered = ""
   while index < split.length
-    split[index].upcase
-    index += 2
+    if index.odd?
+      altered << split[index].upcase
+    else
+      altered << split[index]
+    end
+    index += 1
   end
-  return split
+  return altered
 end
-p change_string("hello")
+p change_string("hello, how are your porcupines today?")
 
 # def alt_capitalize(str)
 #   str.chars.map.with_index {|c, i| i.odd? ? c.capitalize : c }.join
 # end
 # p alt_capitalize("hello")
-
-
-# FIRST DUPLICATE CHARACTER - COMPLETE
-# Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
-
-# Input: “abcdefghhijkkloooop”
-# Output: “h”
-
-# loop through array (while loop)
-# define two index (index1 = 0, index2 = 0)
-# if index1 == index2, return index1
-
-index1 = 0
-index2 = 1
-string = "abcdcefghhijkkloooop"
-split = string.split(//)
-while index1 < split.length
-  if split[index1] == split[index2]
-    p split[index1]
-    break
-  end
-  index1 += 1
-  index2 += 1
-end
 
 
 # REVERSE WORDS
@@ -123,7 +104,7 @@ end
 p reverse_it("popcorn is so cool isn’t it yeah i thought so")
 
 
-# PALINDROME
+# PALINDROME - COMPLETE
 # Given a string, return true if it is a palindrome, and false if it is not. (A palindrome is a word that reads the same both forward and backward.)
 # Input: “racecar”
 # Output: true
@@ -138,7 +119,7 @@ def palindrome(string)
   if string == string.reverse
     return true
   else
-    return false
+    return false 
   end
 end
 p palindrome("racecar")
@@ -165,24 +146,7 @@ end
 p palindrome("racecar")
 p palindrome("colin")
 
-
-
-# Given a string of words, return a new string that contains the words in reverse order.
-
-# Input: “popcorn is so cool isn’t it yeah i thought so”
-# Output: “so thought i yeah it isn’t cool so is popcorn”
-
-# create function
-# split = string.split(/ /)
-# reversed = ""
-# loop through split 
-# while index >= split.length 
-# index = split.length - 1
-# reversed << split[index]
-# index -= 1
-# return reversed 
-
-
+# FRIST DUPLICATE CHARACTER - COMPLETE
 # Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
 
 # Input: “abcdefghhijkkloooop”
@@ -196,12 +160,12 @@ p palindrome("colin")
 # index1 += 1
 # index2 = index2 + 1
 
-# returns first duplicates
+# returns first duplicate with nested while loop
 def duplicate(string)
   index1 = 0
-  while index1 <= string.length
+  while index1 < string.length
     index2 = index1 + 1
-    while index2 <= string.length
+    while index2 < string.length
       if string[index1] == string[index2]
         return string[index1]
       end
@@ -230,25 +194,58 @@ def duplicate(string)
 end
 p duplicate("abcdefghhijkkloooop")
 
-# "a b c d e f g h h i j k k l o o o o p"
-
-# Input: “abcdefghhijkkloooop”
-# Output: “h”
-
-def duplicate_finder(string)
-  index1 = 0
-  while index1 <= string.length
-    index2 = 1
-    while index2 <= string.length
-      if string[index1] == string[index2]
-        return string[index1]
-      end
-      index2 += 1
-    end
-    index1 += 1
+# returns first duplicate with single while loop
+index1 = 0
+index2 = 1
+string = "abcdcefghhijkkloooop"
+split = string.split(//)
+while index1 < split.length
+  if split[index1] == split[index2]
+    p split[index1]
+    break
   end
+  index1 += 1
+  index2 += 1
 end
-p duplicate_finder("abcdefghijkklooopp")
 
-     
 
+# HAMMING - COMPLETE
+# Given two strings of equal length, return the number of characters that are different between the two strings.
+
+# Input: "ABCDEFG", "ABCXEOG"
+# Output: 2
+
+# Explanation: While the A, B, C, E, and G are in the same place for both strings, they have different characters in the other spaces. Since there are 2 such spaces that are different (the D and F in the first string), we return 2.
+
+# Input: "ABCDEFG", "ABCDEFG",
+# Output: 0
+
+# loop through string1 w/ while loop  index = 0  define counter variable to keep track of character differences between two strings 
+# if string1[index] != string2[index]  then increase counter by 1
+
+string1 = "ABCDEFG"
+string2 = "ABCXEOG"
+index = 0
+counter = 0
+while index < string1.length
+  if string1[index] != string2[index]
+    counter += 1
+  end
+  index += 1
+end
+p counter
+
+# algorithm within function
+def difference(string1, string2)
+  index = 0
+  counter = 0
+  while index < string1.length
+    if string1[index] != string2[index]
+      counter += 1
+    end
+    index += 1
+  end
+  return counter
+end
+p difference("ABCDEFG", "ABCXEOG")
+p difference("ABCDEFG", "ABCDEFG")
