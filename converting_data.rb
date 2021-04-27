@@ -65,8 +65,34 @@ p string_to_hash("bookkeeper")
 #  4. Convert a hash into an array of arrays.
 #     For example, {"chair" => 100, "book" => 14} becomes [["chair", 100], ["book", 14]].
 
+# loop through hash with .each do loop  block variables being item, price
+# create array  store_items = []
+# shovel block variables into array
+
+def hash_to_array(hash)
+  store_items = []
+  hash.each do |item, price|
+    store_items << [item, price]
+  end
+  return store_items
+end
+p hash_to_array({"chair" => 100, "book" => 14})
+
+
+
 #  5. Convert a hash into an array of hashes using the keys from each hash as the :id key in each of the array's hashes.
 #     For example, {321 => {name: "Alice", age: 31}, 322 => {name: "Maria", age: 27}} becomes [{id: 321, name: "Alice", age: 31}, {id: 322, name: "Maria", age: 27}].
+
+# loop through hash 
+
+people = { 321 => { name: "Alice", age: 31 }, 322 => { name: "Maria", age: 27 } }
+people_array = []
+people.each do |id, person|
+  person[:id] = id
+  people_array << person
+end
+p people_array
+
 
 #  6. Convert an array of strings into a hash with keys for each string in the array and values for the number of times the string appears in the array.
 #     For example, ["do", "or", "do", "not"] becomes {"do" => 2, "or" => 1, "not" => 1}.
