@@ -12,23 +12,23 @@
 # else p n 
 # n += 1
 
-def fizz_buzz(n)
-  while n <= 100 # n = 15
-    if n % 3 == 0 && n % 5 == 0
-      p "FIZZBUZZ"
-    elsif n % 3 == 0
-      p "FIZZ"
-    elsif n % 5 == 0
-      p "BUZZ"
-    else 
-      p n # 1, 2, FIZZ, 4, BUZZ
-    end
-    n += 1
-  end
-end
-p fizz_buzz(1)
+# def fizz_buzz(n)
+#   while n <= 100 # n = 15
+#     if n % 3 == 0 && n % 5 == 0
+#       p "FIZZBUZZ"
+#     elsif n % 3 == 0
+#       p "FIZZ"
+#     elsif n % 5 == 0
+#       p "BUZZ"
+#     else 
+#       p n # 1, 2, FIZZ, 4, BUZZ
+#     end
+#     n += 1
+#   end
+# end
+# p fizz_buzz(1)
 
-puts "----"
+# puts "----"
 
 # Given a year, report if it is a leap year.
 
@@ -74,3 +74,44 @@ p find_leap_year(1997)
 p find_leap_year(1996)
 p find_leap_year(1900)
 p find_leap_year(2000)
+
+
+
+
+# Write a function that prints out every number from 1 to N, with the following exceptions:
+
+# If the number is divisible by 3, print out "FIZZ".
+# If the number is divisible by 5, print out "BUZZ".
+# If the number is divisible by both 3 and 5, print out "FIZZBUZZ".
+
+# while loop 
+# while num <= 100
+
+# num = 1
+# if num % 3 == 0 && num % 5 == 0
+  # print "FIZZBUZZ"
+# elsif num % 5 == 0
+  # print "BUZZ"
+# elsif num % 3 == 0
+  # print "FIZZ"
+# else 
+  # print num 
+# num += 1
+
+def fizz_buzz(num)
+  while num <= 100
+    if num % 3 == 0 && num % 5 == 0
+      p "FIZZBUZZ"
+    elsif num % 3 == 0
+      p "BUZZ"
+    elsif num % 5 == 0
+      p "FIZZ"
+    else 
+      p num 
+    end
+    num += 1
+  end
+end
+p fizz_buzz(1)
+
+

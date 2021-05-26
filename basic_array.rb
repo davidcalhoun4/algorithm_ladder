@@ -119,3 +119,50 @@ p select([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2])
 # 16 + 2 = 18
 
 [2, 3, 1, 2, 2, 1, 5, 2, 2]
+
+
+# Write a function that takes in an array of numbers and returns a new array of the same numbers without any duplicates.
+
+# clarify 
+# input: array = [33, 2, 33, 4, 33, 1]
+# output: new_array = [33, 2, 4, 1]
+
+# visualize
+# loop through array with while loop index = 0
+# shovel array[index] into new_array
+# if new_array.include? array[index] !<<
+
+
+def no_duplicates(array)
+  new_array = []
+  index = 0
+  while index < array.length
+    index2 = 1
+    while index2 < array.length
+      if array[index] != array[index2]
+        new_array << array[index2]
+      end
+      index2 += 1
+    end
+    break
+  end
+  return new_array 
+end
+p no_duplicates([33, 2, 33, 4, 33, 1])
+
+def no_duplicates(array)
+  first = array[0]
+  new_array = []
+  new_array << first
+  index = 0
+  while index < array.length
+    if array[index] != first
+      new_array << array[index]
+    end
+    index += 1
+  end
+  
+  return new_array
+end
+p no_duplicates([33, 2, 33, 4, 33, 1])
+
