@@ -237,6 +237,7 @@ p counter
 
 # algorithm within function
 def difference(string1, string2)
+ 
   index = 0
   counter = 0
   while index < string1.length

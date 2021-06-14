@@ -1,4 +1,14 @@
-#  COUNTER
+# BASIC HASH
+# Most Frequent Letter ()
+# Count Votes ()
+# Order the Whole Menu ()
+# Popular Posts ()
+# RNA Transcription ()
+# Complete the Data I ()
+# Anagrams ()
+
+
+# COUNTER
 # Given an array of strings, return a hash that provides of a count of how many times each string occurs.
 
 # Input: ["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"]
@@ -6,6 +16,23 @@
 # Output: {"Dewey" => 6, "Truman" => 5}
 
 # Explanation: "Dewey" occurs 6 times in the array, while "Truman" occurs 5 times.
+
+def how_many_times(array)
+  index = 0
+  counter_hash = {}
+  while index < array.length
+    if counter_hash[index] == nil
+      counter_hash[index] = 0
+    end
+    counter_hash[index] += 1
+    index += 1
+  end
+end
+p how_many_times(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"])
+
+# most_occuring = {"Dewey"=>6, "Truman"=>5}
+# p "__"
+# p most_occuring.values.first
 
 def name_counter(array)
   hash = {}
@@ -32,8 +59,47 @@ p name_counter(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey"
 # Output: false
 
 # count how many times the letter appears 
-string = "david"
-p string[0]
+# if letter doesn't exist in hash1, set its value to 1, increment value +1 if the letter appears again
+# if letter doesn't exist in hash2, set its value to 1, increment value +1 if the letter appears again
+# compare hash1 to hash2, if they == each other return true else false
+puts
+def anagrams(string1, string2)
+  hash1 = {}
+  hash2 = {}
+
+  index = 0
+  while index < string1.length
+    if hash1[string1[index]] == nil
+      hash1[string1[index]] = 0
+    end
+    hash1[string1[index]] += 1
+    index += 1
+  end
+  puts hash1
+
+  index = 0
+  while index < string2.length
+    if hash2[string2[index]] == nil
+      hash2[string2[index]] = 0
+    end
+    hash2[string2[index]] += 1
+    index += 1
+  end
+
+  puts hash2
+
+  if hash1 == hash2
+    return true
+  else
+    return false
+  end
+
+end
+p anagrams("silent", "listen")
+p anagrams("frog", "bear")
+
+puts
+
 
 # CONVERSION
 # Given a DNA strand, return its RNA complement (per RNA transcription).
@@ -118,46 +184,7 @@ end
 p most_frequent_letter("peter piper picked a peck of pickled peppers")
 
 
-
-
-
-# Given two strings, return true if they are anagrams of each other, and false if they are not. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
-
-# Do not use any built-in sort methods.
-
-# Input: “silent”, “listen”
-# Output: true
-
-# Input: “frog”, “bear”
-# Output: false
-
-
-# "silent" {"s" => 1, "i" =>, "l" =>, "e" =>, "n" =>, "t" => 1}
-# "listen" 
-# string_1_hashed = {}
-# string_2_hashed = {}
-# while loop through string1 string2  index = 0
-# if string_1_hashed[string1[index]]
-# string_1_hashed[string1[index]] = 1
-# else string_1_hashed[string1[index]] += 1
-
-# index += 1
-# repeat for string_2_hashed = {}
-
-# if string_1_hashed == string_2_hashed 
-# return true else return false 
-
-
-# def anagrams(string1, string2)
-#   string_1_hashed = {}
-#   string_2_hashed = {}
-#   index = 0
-#   while index < 
-# end
-# p anagrams("silent", "listen")
-# p anagrams("frog", "bear")
-
-# Order the Whole Menu\
+# Order the Whole Menu 
 # Given a hash, where the keys are strings representing food items, and the values are numbers representing the price of each food, return the amount someone would pay if they'd order one of each food from the entire menu.
 
 # Input: {"hot dog" => 2, "hamburger" => 3, "steak sandwich" => 5, "fries" => 1, "cole slaw" => 1, "soda" => 2}
@@ -169,7 +196,9 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 # menu = {"hot dog" => 2, "hamburger" => 3, "steak sandwich" => 5, "fries" => 1, "cole slaw" => 1, "soda" => 2}
 # loop through menu. add values to sum, sum = 0
 # p menu[0] cannot call menu index because menu[0] is the whole set of hashes
+
 # p menu.each_value.sum
+
 # p menu.each_value
 
 
@@ -178,9 +207,7 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 
 # Complete the Data I
 # Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
-
 # For example, given this array of posts (note that the submitted_by is an id number):
-
 # [
 # {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
 # {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
@@ -189,11 +216,9 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 # ]
 
 # And this hash of users (the key is the id number and the value is the user's real name):
-
 # users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
 
 # Return the array of posts as follows:
-
 # [
 # {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
 # {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
@@ -201,12 +226,12 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 # {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
 # ]
 
-# posts = [
-# {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
-# {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
-# {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
-# {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
-# ]
+posts = [
+{title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+{title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+{title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+{title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+]
 # p posts[0][:submitted_by]
 
 # users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
@@ -217,12 +242,7 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 # p posts[0]
 
 # def who_da_user(array)
-#   posts = [
-#     {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
-#     {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
-#     {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
-#     {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
-#     ]
+ 
 #   users = {403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q."}
 
 #   index = 0
@@ -233,3 +253,47 @@ p most_frequent_letter("peter piper picked a peck of pickled peppers")
 #   return array
 # end
 # p who_da_user(posts)
+
+
+
+
+# POPULAR POSTS
+# Given an array of hashes that represent a list of social media posts, return a new array that only contains the posts that have at least 1000 likes.
+
+# Input: 
+# [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+
+# Output: [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# ]
+# return posts with > 1000 likes
+
+# Visualize
+# loop through array with while loop, index = 0
+# for each index, if input[index][:likes] > 100
+# then shovel >> that index into new array   popular_posts = []
+# return popular_posts
+
+# def most_liked(array)
+#   popular_posts = []
+#   index = 0
+#   while index < array.length
+#     if array[index][:likes] > 1000
+#       popular_posts << array[index]
+#     end
+#     index += 1
+#   end
+#   return popular_posts
+# end
+# p most_liked([
+#   {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+#   {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+#   {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+#   {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+#   ])
